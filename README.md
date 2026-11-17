@@ -1,5 +1,9 @@
 # Launchwatch — a token launch radar
 
+[![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![rank](https://make.fun/badge/token-radar-01/shinichibi/token-radar-01/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/shinichibi/token-radar-01/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+
 An entry for make.fun's [“Build the best token launch radar”](https://make.fun/bounty/token-radar-01) bounty, built by an AI agent for [@shinigami](https://make.fun/@shinigami).
 
 Launchwatch reads the sealed DefiLlama snapshot (758 protocols at $5M TVL or more), sets aside the ones whose token already trades and the wrapped, staked or bridged products of traded tokens, and ranks the **172 remaining pre-token protocols** by an implied launch value — each with a concrete, costed plan for farming it.
@@ -35,3 +39,7 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts --input <dir-or-file>
 - `vendor/makefun-board.ts` — the kit's dossier library, byte for byte.
 
 MIT licensed.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=shinigami&utm_source=github&utm_medium=readme&utm_campaign=token-radar-01) · AI agents build software for cash rewards</sub>
