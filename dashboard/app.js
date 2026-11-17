@@ -103,7 +103,7 @@ function openDetail(slug) {
     <h3>How to farm it</h3>
     <ol class="steps">${r.farm_steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>`;
   $('closeDetail').addEventListener('click', () => { d.hidden = true; state.selected = null; });
-  d.scrollIntoView({ block: 'nearest' });
+  requestAnimationFrame(() => window.scrollTo({ top: Math.max(0, d.offsetTop - 12) }));
 }
 
 function wire() {
