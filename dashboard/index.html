@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launchwatch — token launch radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true"></div>
+    <div>
+      <h1>LAUNCHWATCH</h1>
+      <p class="tagline">A radar for tokens that do not exist yet — pre-token protocols ranked by what their launch would be worth, each with a plan to farm it.</p>
+    </div>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<section class="model-note">
+  <h2>How the board ranks</h2>
+  <p>Implied value = <strong>TVL &times; peer multiple &times; momentum &times; maturity</strong>, computed from the snapshot's own figures, never from a list of names. The peer multiple is the median market-cap/TVL of traded protocols in the same line of business. Momentum is the protocol's own 7-day TVL change, clamped. Maturity adds 5% for every year the protocol has run with no token, up to eight years. A protocol joins the board when DefiLlama records no token for it (no CoinGecko id, no symbol) and it is not a wrapped, staked or bridged product of a token that already trades — the same exclusions the snapshot's watchlist uses — and its TVL is at least $7.5M. Every watchlist protocol is on the board; the board reaches far below the watchlist's $50M floor. An implied value is a model's claim about a launch that may never happen, not a prediction.</p>
+</section>
+
+<section class="controls" aria-label="Board controls">
+  <label class="ctl grow">Search
+    <input id="q" type="search" placeholder="Protocol name or slug">
+  </label>
+  <label class="ctl">Category
+    <select id="category"></select>
+  </label>
+  <label class="ctl">Chain
+    <select id="chain"></select>
+  </label>
+  <label class="ctl check">
+    <input id="watchOnly" type="checkbox"> Watchlist only
+  </label>
+  <label class="ctl">Sort by
+    <select id="sort">
+      <option value="rank">Radar rank</option>
+      <option value="implied">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="change">7-day change</option>
+      <option value="age">Years tokenless</option>
+      <option value="name">Name</option>
+    </select>
+  </label>
+  <span class="count" id="count"></span>
+</section>
+
+<main>
+  <table class="board" id="board">
+    <thead>
+      <tr>
+        <th class="num">#</th>
+        <th>Protocol</th>
+        <th class="num">Implied value</th>
+        <th class="num">TVL</th>
+        <th class="num">7d</th>
+        <th class="num">Tokenless</th>
+        <th>Chains</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="empty" id="empty" hidden>No protocol matches those filters. Loosen one and the radar sweeps again.</p>
+</main>
+
+<aside class="detail" id="detail" hidden aria-label="Protocol detail"></aside>
+
+<footer>
+  <p>Data: the sealed DefiLlama snapshot of <span id="asof"></span> — <span id="scanned"></span> protocols at $5M TVL or more. Protocols whose token already trades are set aside, as are wrapped and staked products. “Records no token” is what the snapshot says; it is not proof a token does not exist. Farm plans are starting points, not financial advice: sizes are guidance, and every step's cost is an estimate at typical fees.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
